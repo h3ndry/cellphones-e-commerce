@@ -48,7 +48,7 @@ const HeaderWrapper = styled.header`
       img {height: 100%}
     }
 
-    @media screen and (max-width: 68em) { width: 95%;}
+    @media screen and (max-width: 68em) { width: 90%;}
     @media screen and (max-width: 39.375em) {
       .banner-img { display: none}
     }

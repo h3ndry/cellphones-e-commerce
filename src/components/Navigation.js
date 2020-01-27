@@ -43,6 +43,7 @@ const NavWrapper = styled.nav`
 
     .cart {
       position: relative;
+      margin-right: 1.5rem;
 
       span {
         display: block;
@@ -63,6 +64,8 @@ const NavWrapper = styled.nav`
 
       }
     }
+
+    @media screen and (max-width: 68em) { width: 90%;}
   }
 
 

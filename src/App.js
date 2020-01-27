@@ -1,6 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 
+import { ProductProvider } from './context'
+
+
 import Header from './components/Header'
 import ProductList from './components/ProductList'
 import Details from './components/Details'
@@ -13,7 +16,7 @@ import GlobalStyle from './layout/GlobalStyles'
 function App() {
 
   return (
-    <>
+    <ProductProvider>
       <GlobalStyle />
       <Header />
       <Navigation />
@@ -23,7 +26,7 @@ function App() {
         <Route path='/cart' component={Cart} />
         <Route component={Default} />
       </Switch>
-    </>
+    </ProductProvider>
   )
 }
 

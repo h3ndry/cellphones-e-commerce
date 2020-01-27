@@ -1,0 +1,9 @@
+{
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorStyle": "line-thin",
+  "editor.fontWeight": "100",
+  "editor.formatOnType": true,
+  "workbench.colorTheme": "Nord",
+  "workbench.statusBar.visible": false,
+  "editor.fontFamily": "'Fira Code Light', Consolas, 'Courier New', monospace"
+}

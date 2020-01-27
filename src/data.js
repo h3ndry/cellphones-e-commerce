@@ -1,13 +1,8 @@
-/* 
-https://www.iconfinder.com/icons/1243689/call_phone_icon
-Creative Commons (Attribution 3.0 Unported);
-https://www.iconfinder.com/Makoto_msk */
-
 export const storeProducts = [
   {
     id: 1,
-    title: "Vintage Iphone",
-    img: "img/product-6.png",
+    name: 'Vintage Iphone',
+    img: require('./images/product-6.png'),
     colors: ['#000000', '#FC4D4D', '#979797'],
     price: 549.99,
     company: "apple",
@@ -28,8 +23,8 @@ export const storeProducts = [
   },
   {
     id: 2,
-    title: "HTC Desire 626s",
-    img: "img/product-5.png",
+    name: "HTC Desire 626s",
+    img: require('./images/product-5.png'),
     colors: ['#08056D', '#FC4D4D', '#979797'],
     price: 1649.49,
     company: "htc",
@@ -50,8 +45,8 @@ export const storeProducts = [
   },
   {
     id: 3,
-    title: "HTC 10 - White",
-    img: "img/product-4.png",
+    name: "HTC 10 - White",
+    img: require('./images/product-4.png'),
     colors: ['#000000', '#979797'],
     price: 999.99,
     company: "htc",
@@ -73,8 +68,8 @@ export const storeProducts = [
   },
   {
     id: 4,
-    title: "Google Pixel - Black",
-    img: "img/product-1.png",
+    name: "Google Pixel - Black",
+    img: require('./images/product-1.png'),
     colors: ['#000000', '#FC4D4D', '#979797'],
     price: 2049.99,
     company: "GOOGLE",
@@ -96,8 +91,8 @@ export const storeProducts = [
   },
   {
     id: 5,
-    title: "Smashed Iphone",
-    img: "img/product-8.png",
+    name: "Smashed Iphone",
+    img: require('./images/product-8.png'),
     colors: ['#74634F'],
     price: 249.49,
     company: "apple",
@@ -119,8 +114,8 @@ export const storeProducts = [
   },
   {
     id: 6,
-    title: "HTC 10 - Black",
-    img: "img/product-3.png",
+    name: "HTC 10 - Black",
+    img: require('./images/product-3.png'),
     colors: ['#000000', '#979797'],
     price: 3449.99,
     company: "htc",
@@ -142,8 +137,8 @@ export const storeProducts = [
   },
   {
     id: 7,
-    title: "Iphone 7",
-    img: "img/product-7.png",
+    name: "Iphone 7",
+    img: require('./images/product-7.png'),
     colors: ['#000000', '#FC4D4D', '#74634F'],
     price: 8799,
     company: "apple",
@@ -165,8 +160,8 @@ export const storeProducts = [
   },
   {
     id: 8,
-    title: "Samsung S7",
-    img: "img/product-2.png",
+    name: "Samsung S7",
+    img: require('./images/product-2.png'),
     colors: ['#74634F'],
     price: 4449.99,
     company: "SAMSUNG",
@@ -191,8 +186,8 @@ export const storeProducts = [
 
 export const detailProduct = {
   id: 1,
-  title: "Vintage Iphone",
-  img: "img/product-6.png",
+  name: "Vintage Iphone",
+  img: require('./images/product-6.png'),
   colors: ['#000000', '#FC4D4D', '#979797'],
   price: 549.99,
   company: "apple",
