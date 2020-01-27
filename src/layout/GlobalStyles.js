@@ -9,7 +9,7 @@ export default createGlobalStyle`
   --blue: #2F35D5;
   --white: #FFFFFF;
 
-  --display-font: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif,
+  --display-font: Calibri /*'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, */
 }
 
 html {
@@ -26,5 +26,6 @@ html {
 
 body {
   font-family: var(--display-font);
+  background-color: var(--grey);
 }
 `
