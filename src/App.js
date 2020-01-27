@@ -7,12 +7,14 @@ import Details from './components/Details'
 import Default from './components/Default'
 import Cart from './components/Cart'
 import Navigation from './components/Navigation'
+import GlobalStyle from './layout/GlobalStyles'
 
 
 function App() {
 
   return (
     <>
+      <GlobalStyle />
       <Header />
       <Navigation />
       <Switch>
