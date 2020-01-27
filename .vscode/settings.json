@@ -5,5 +5,10 @@
   "editor.formatOnType": true,
   "workbench.colorTheme": "Nord",
   "workbench.statusBar.visible": false,
-  "editor.fontFamily": "'Fira Code Light', Consolas, 'Courier New', monospace"
+  "editor.fontFamily": "'Fira Code Light', Consolas, 'Courier New', monospace",
+  "breadcrumbs.enabled": false,
+  "breadcrumbs.filePath": "off",
+  "editor.autoClosingBrackets": "always",
+  "editor.autoClosingQuotes": "always",
+  "editor.dragAndDrop": false
 }

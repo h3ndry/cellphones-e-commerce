@@ -25,7 +25,6 @@ const ProductListWrapper = styled.div`
   height: 100%;
   max-width: 68rem;
   margin: 0 auto;
-  padding-bottom: 2rem;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));

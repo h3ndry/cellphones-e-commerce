@@ -27,5 +27,6 @@ html {
 body {
   font-family: var(--display-font);
   background-color: var(--grey);
+  padding-bottom: 2rem;
 }
 `

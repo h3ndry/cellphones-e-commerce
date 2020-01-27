@@ -1,24 +1,41 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import Color from './Color'
+import { ProductConsumer } from '../context'
 
 export default function ProductCart({ productValues }) {
-  const { img, price, colors, name } = productValues
-  console.log(img)
+
+  const { img, price, colors, name, id } = productValues
+
   return (
     <ProductWrapper>
+
       <div className="product-img">
-        <img src={img} alt="product" />
+        <Link to='/details'>
+          <img src={img} alt="product" />
+          {name}
+        </Link>
       </div>
-      <h2>{name}</h2>
-      <button>
-        <span>+ </span>
-        R {price}
-      </button>
+
+      <ProductConsumer>
+        {value => {
+
+          const { addToCart } = value
+
+          return (
+            <button onClick={() => { addToCart(id) }}>
+              <span>+ </span>
+              R {price}
+            </button>
+          )
+        }}
+      </ProductConsumer>
       <div className="colors">
         {colors.map(color => <Color key={color} color={color} />)}
       </div>
+
     </ProductWrapper>
   )
 }
@@ -29,6 +46,10 @@ const ProductWrapper = styled.div`
   padding: 2.25rem 1.5rem ;
   text-align: center;
 
+  &:hover {
+    box-shadow: 0px 2px 0px rgba(252, 77, 77, 1);
+  }
+
   & > * {
     margin-bottom: 1rem;
   }
@@ -37,13 +58,25 @@ const ProductWrapper = styled.div`
     width: 100%;
     img {
       width: 100%;
+      margin-bottom: 1rem;
+      transition: all .3s ease-in-out;
+    }
+
+    a:link,
+    a:visited {
+      text-decoration: none;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--black)
+  
+    }
+    
+    &:hover {
+      img {transform: scale(1.04)}
     }
   }
   
-  h2 {
-    font-size: 1.125rem;
-    font-weight: 400;
-  }
+ 
 
   button {
     border: none;
