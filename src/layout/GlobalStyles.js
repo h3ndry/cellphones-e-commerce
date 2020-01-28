@@ -4,9 +4,10 @@ export default createGlobalStyle`
 
 :root {
   --black: #000;
-  --red: #FE4747;
+  --dark: #323232;
+  --red: #fd5151;
   --grey: #F5F5F5;
-  --blue: #2F35D5;
+  --blue: #007fff;
   --white: #FFFFFF;
 
   --display-font: Calibri /*'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, */

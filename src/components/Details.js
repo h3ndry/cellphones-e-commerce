@@ -1,16 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ProductConsumer } from '../context'
+import { Link } from 'react-router-dom'
 
+
+import { ProductConsumer } from '../context'
 import Color from './Color'
-import Button from './Button'
 
 export default function Details() {
   return (
     <DetailsWrapper>
       <ProductConsumer>
         {values => {
-          const { img, price, colors, name, id, company, features, review } = values.productDetails
+          const { img, price, inCart, colors, name, id, company, features, review } = values.productDetails
+          const { addToCart, notification } = values
+
+          // showNotification('✅ Saccess', 'Item added')
+
+          // const handleAddToCart = id => {
+          //   if (inCart) {
+          //     showNotification('⚠ Warning', 'Already added')
+          //   } else {
+          //     // addToCart(id)
+          //     showNotification('✅ Saccess', 'Item added')
+          //   }
+          // }
+
+
           return (
             <>
               <div className="product-img">
@@ -42,9 +57,14 @@ export default function Details() {
                 </div>
 
 
-                <div className="buttons">
-                  <Button text='Add to Cart' bgColor='#2F35D5' />
-                  <Button text='Cheack Out' bgColor='#EA5555' />
+                <div className="btn">
+                  <button onClick={() => { addToCart(id) }}>
+                    Set True
+                  </button>
+
+                  <Link to='/cart' >
+                    Check Out
+                  </Link>
                 </div>
 
               </div>
@@ -58,7 +78,7 @@ export default function Details() {
           )
         }}
       </ProductConsumer>
-    </DetailsWrapper>
+    </DetailsWrapper >
   )
 }
 
@@ -75,7 +95,7 @@ const DetailsWrapper = styled.div`
 
   .product-img {
     padding-top: 5rem;
-    width: 100%;
+    width: 80%;
     img {width: 100%; margin-bottom: 1rem }
     .colors { text-align: center } 
   }
@@ -110,6 +130,7 @@ const DetailsWrapper = styled.div`
     .buttons {
       display: flex;
       justify-content: space-around;
+      transform: translateX(-6.5rem)
     }
   }
   .review {
@@ -120,6 +141,10 @@ const DetailsWrapper = styled.div`
         font-size: 1.125rem;
         font-weight: 600;
         width: 5rem;
+      }
+      .text {
+        font-size: 1rem;
+        font-weight: 300;
       }
     }
   }

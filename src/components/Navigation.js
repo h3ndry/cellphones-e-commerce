@@ -42,7 +42,7 @@ const NavWrapper = styled.nav`
     a {
       text-decoration: none;
       font-size: 1.5rem;
-      color: var(--black);
+      color: var(--dark);
       transition: all .2s linear;
 
       &:hover {

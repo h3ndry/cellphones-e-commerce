@@ -1,9 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
-
-import { ProductProvider } from './context'
-
-
+import { ProductConsumer } from './context'
 import Header from './components/Header'
 import ProductList from './components/ProductList'
 import Details from './components/Details'
@@ -11,12 +8,13 @@ import Default from './components/Default'
 import Cart from './components/Cart'
 import Navigation from './components/Navigation'
 import GlobalStyle from './layout/GlobalStyles'
+import Notification from './components/Notification'
 
 
 function App() {
 
   return (
-    <ProductProvider>
+    <>
       <GlobalStyle />
       <Header />
       <Navigation />
@@ -26,7 +24,17 @@ function App() {
         <Route path='/cart' component={Cart} />
         <Route component={Default} />
       </Switch>
-    </ProductProvider>
+
+      <ProductConsumer >
+        {value => {
+          const { notifState, notifiTitle, notifiText } = value
+          return notifState ? <Notification
+            title={notifiTitle}
+            text={notifiText} /> : ''
+        }}
+      </ProductConsumer>
+
+    </>
   )
 }
 
