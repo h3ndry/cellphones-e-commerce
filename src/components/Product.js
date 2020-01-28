@@ -3,39 +3,43 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import Color from './Color'
+import Added from './AddedToCart'
 import { ProductConsumer } from '../context'
 
 export default function ProductCart({ productValues }) {
 
-  const { img, price, colors, name, id } = productValues
+  const { img, price, colors, name, id, inCart } = productValues
 
   return (
-    <ProductWrapper>
-
-      <div className="product-img">
-        <Link to='/details'>
-          <img src={img} alt="product" />
-          {name}
-        </Link>
-      </div>
-
+    <ProductWrapper inCart={inCart}>
       <ProductConsumer>
         {value => {
 
-          const { addToCart } = value
+          const { addToCart, handleDetails, removeFromCart } = value
 
           return (
-            <button onClick={() => { addToCart(id) }}>
-              <span>+ </span>
-              R {price}
-            </button>
+            <>
+              {inCart ? <Added /> : ''}
+              <div className="product-img" onClick={() => { handleDetails(id) }}>
+                <Link to='/details'>
+                  <img src={img} alt="product" />
+                  {name}
+                </Link>
+              </div>
+
+              <button
+                onClick={inCart ? () => { removeFromCart(id) } : () => { addToCart(id) }}>
+                <span>{inCart ? '- ' : '+ '}</span>
+                R {price}
+              </button>
+
+            </>
           )
         }}
       </ProductConsumer>
       <div className="colors">
         {colors.map(color => <Color key={color} color={color} />)}
       </div>
-
     </ProductWrapper>
   )
 }
@@ -45,6 +49,7 @@ const ProductWrapper = styled.div`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, .05);
   padding: 2.25rem 1.5rem ;
   text-align: center;
+  position: relative;
 
   &:hover {
     box-shadow: 0px 2px 0px rgba(252, 77, 77, 1);
@@ -82,9 +87,28 @@ const ProductWrapper = styled.div`
     border: none;
     cursor: pointer;
     background-color: transparent;
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: 500;
-    color: var(--red)
+    color: ${props => props.inCart ? 'var(--black)' : 'var(--red)'};
+    outline: none;
+    border-image: none;
+    padding: 4px 8px;
+    transition: all .3s ease-in-out;
+    
+    span {
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .04)
+    }
+
+      &:active,
+      &:focus,
+      &:visited {
+      outline: none;
+        border-image: none;
+      }
   }
 
 `

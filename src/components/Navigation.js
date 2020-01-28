@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+import { ProductConsumer } from '../context'
+import CartCount from './CartCount'
+
 export default function Navigation() {
   return (
     <NavWrapper>
@@ -9,13 +12,19 @@ export default function Navigation() {
         <Link to='/'>
           Cell Phones
         </Link>
-
-        <Link to='/' className='cart'>
-          Cart
-          <span>3</span>
-        </Link>
+        <ProductConsumer>
+          {value => {
+            const { cart } = value
+            return (
+              <Link to='/cart' className='cart' >
+                Cart
+                {cart.length ? < CartCount length={cart.length} /> : ''}
+              </Link>
+            )
+          }}
+        </ProductConsumer>
       </div>
-    </NavWrapper>
+    </NavWrapper >
   )
 }
 
@@ -45,24 +54,6 @@ const NavWrapper = styled.nav`
       position: relative;
       margin-right: 1.5rem;
 
-      span {
-        display: block;
-        position: absolute;
-        color: var(--white);
-        background-color: var(--red);
-        height: 1.5rem;
-        width: 1.5rem;
-        font-size: 1.125rem;
-        font-weight: 400;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        right: -1.5rem;
-        top: -9px;
-
-      }
     }
 
     @media screen and (max-width: 68em) { width: 90%;}

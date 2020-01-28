@@ -19,6 +19,9 @@ const ButtonWrapper = styled.button`
   padding: .4em 1.75em;
   border-radius: 8px;
   position: relative;
+  outline: none;
+
+
 
   .overlay {
     position: absolute;

@@ -10,5 +10,7 @@
   "breadcrumbs.filePath": "off",
   "editor.autoClosingBrackets": "always",
   "editor.autoClosingQuotes": "always",
-  "editor.dragAndDrop": false
+  "editor.dragAndDrop": false,
+  "editor.fontSize": 16,
+  "editor.lineHeight": 30
 }

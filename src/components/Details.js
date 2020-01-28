@@ -112,6 +112,17 @@ const DetailsWrapper = styled.div`
       justify-content: space-around;
     }
   }
+  .review {
+    padding-top: 5rem;
+    .details {
+      .title {  
+        display: inline-block;
+        font-size: 1.125rem;
+        font-weight: 600;
+        width: 5rem;
+      }
+    }
+  }
 
   
 `
