@@ -1,11 +1,11 @@
 export const storeProducts = [
   {
     id: 1,
-    name: 'Vintage Iphone',
+    name: 'Vintage iPhone',
     img: require('./images/product-6.png'),
     colors: ['#000000', '#FC4D4D', '#979797'],
     price: 549.99,
-    company: "apple",
+    company: "Apple",
     features: [
       "iOS",
       "4.1' LCD Display Screen",
@@ -27,7 +27,7 @@ export const storeProducts = [
     img: require('./images/product-5.png'),
     colors: ['#08056D', '#FC4D4D', '#979797'],
     price: 1649.49,
-    company: "htc",
+    company: "H T C",
     features: [
       "Android OS",
       "4.1' LCD Display Screen",
@@ -49,7 +49,7 @@ export const storeProducts = [
     img: require('./images/product-4.png'),
     colors: ['#000000', '#979797'],
     price: 999.99,
-    company: "htc",
+    company: "H T C",
     features: [
       "Android OS",
       "6 hour battery life",
@@ -72,7 +72,7 @@ export const storeProducts = [
     img: require('./images/product-1.png'),
     colors: ['#000000', '#FC4D4D', '#979797'],
     price: 2049.99,
-    company: "GOOGLE",
+    company: "Google",
     features: [
       "Android OS",
       "6 hour battery life",
@@ -91,11 +91,11 @@ export const storeProducts = [
   },
   {
     id: 5,
-    name: "Smashed Iphone",
+    name: "Smashed iPhone",
     img: require('./images/product-8.png'),
     colors: ['#74634F'],
     price: 249.49,
-    company: "apple",
+    company: "Apple",
     features: [
       "Android OS",
       "6.1' LCD Display Screen",
@@ -118,7 +118,7 @@ export const storeProducts = [
     img: require('./images/product-3.png'),
     colors: ['#000000', '#979797'],
     price: 3449.99,
-    company: "htc",
+    company: "H T C",
     features: [
       "Android OS",
       "6.1' LCD Display Screen",
@@ -137,11 +137,11 @@ export const storeProducts = [
   },
   {
     id: 7,
-    name: "Iphone 7",
+    name: "iPhone 7s",
     img: require('./images/product-7.png'),
     colors: ['#000000', '#FC4D4D', '#74634F'],
     price: 8799,
-    company: "apple",
+    company: "Apple",
     features: [
       "iOS",
       "6.1' LCD Display Screen",
@@ -186,11 +186,11 @@ export const storeProducts = [
 
 export const detailProduct = {
   id: 1,
-  name: "Vintage Iphone",
+  name: "Vintage iPhone",
   img: require('./images/product-6.png'),
   colors: ['#000000', '#FC4D4D', '#979797'],
   price: 549.99,
-  company: "apple",
+  company: "Apple",
   features: [
     "Android OS",
     "6.1' LCD Display Screen",

@@ -15,6 +15,9 @@ export default createGlobalStyle`
 
 html {
   font-size: 100%;
+  @media screen and (max-width: 32em) {
+    font-size: 80%;
+  }
 }
 
 *,

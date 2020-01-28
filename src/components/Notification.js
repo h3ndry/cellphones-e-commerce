@@ -5,12 +5,17 @@ export default function Notification({ title, text }) {
   return (
     <NotificationWrapper>
       <p> <strong>{title}</strong> </p>
-      <p>{text} hello is this you</p>
+      <p>{text}</p>
     </NotificationWrapper>
   )
 }
 
 const NotificationWrapper = styled.div`
+
+@keyframes slide-left {
+  0%, 100% {transform: translate3d(100%, 0, 0)}
+  10%, 90% {transform: translate3d(-2rem, 0, 0)}
+}
   position: fixed;
   bottom: 2rem;
   right: 0;
@@ -40,5 +45,10 @@ const NotificationWrapper = styled.div`
     left: 0;
     top: 0;
     border-radius: 2px 0 0 2px;
+  }
+
+  @media screen and (max-width: 32em) {
+    top: 2rem;
+    bottom: auto;
   }
 `

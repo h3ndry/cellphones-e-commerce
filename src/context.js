@@ -80,7 +80,7 @@ class ProductProvider extends Component {
 
 
     if (product.inCart) {
-      this.notification('⚠ Warning', 'Already added')
+      this.notification('🟡 Warning', `${product.name} already added to cart`)
       return;
     } else {
       product.inCart = true
@@ -88,7 +88,7 @@ class ProductProvider extends Component {
       const price = product.price
       product.total = price
 
-      this.notification('✔ Success', ` ${product.name} added`)
+      this.notification('🟢 Success', ` ${product.name} added to cart`)
     }
 
 

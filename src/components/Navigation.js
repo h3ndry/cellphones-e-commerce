@@ -6,12 +6,17 @@ import { ProductConsumer } from '../context'
 import CartCount from './CartCount'
 
 export default function Navigation() {
+
+  console.log(window)
   return (
     <NavWrapper>
       <div className="nav-inner">
         <Link to='/'>
-          Cell Phones
+          <span className="icon"></span>
+          <span>Cell Phones</span>
         </Link>
+
+
         <ProductConsumer>
           {value => {
             const { cart } = value
@@ -28,7 +33,12 @@ export default function Navigation() {
   )
 }
 
+
+
 const NavWrapper = styled.nav`
+  @keyframes pop {
+    
+  }
   
   .nav-inner {
     padding: 1rem 0;

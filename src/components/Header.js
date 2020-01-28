@@ -54,4 +54,14 @@ const HeaderWrapper = styled.header`
     }
   }
 
+    @media screen and (max-width: 32em) {
+      height: 8rem;
+    .header-inner  h1 {
+        .main {
+          font-size: 2rem;
+        }
+      }
+      
+    }
+
 `
