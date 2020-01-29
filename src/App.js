@@ -28,9 +28,7 @@ function App() {
       <ProductConsumer >
         {value => {
           const { notifState, notifiTitle, notifiText } = value
-          return notifState ? <Notification
-            title={notifiTitle}
-            text={notifiText} /> : ''
+          return notifState && <Notification title={notifiTitle} text={notifiText} />
         }}
       </ProductConsumer>
 

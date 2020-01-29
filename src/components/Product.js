@@ -74,6 +74,7 @@ const ProductWrapper = styled.div`
       &:hover + img {
         transform: scale(1.1)
       }
+    
     }
 
     h2 {

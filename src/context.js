@@ -59,21 +59,54 @@ class ProductProvider extends Component {
   //Show Notification, Triger the component that
   // act as a notification to re render with new props
   notification = (title, text) => {
-    console.log(this.state.notifState)
-    this.setState(() => ({
-      notifState: false,
+
+    this.setState(prevState => ({
+      notifState: !prevState.notifState,
       notifiTitle: title,
       notifiText: text
-    }), () => {
-      this.setState(() => ({ notifState: true }))
-    })
-    this.setState(() => ({ notifState: false }))
-    console.log(this.state.notifState)
+    }), () => { this.setState(() => ({ notifState: true })) })
+
   }
+
 
 
   //Add product to the cart array
   addToCart = id => {
+
+    // this.setState(prevState => {
+
+    //   // get the clicked product from the list of product
+    //   const updateProducts = prevState.products
+    //   const indexProduct = updateProducts.indexOf(this.getProduct(id))
+    //   const singleProduct = updateProducts[indexProduct]
+
+    //   //check if the item is alredad in cart
+    //   if (singleProduct.inCart) {
+    //     this.notification('🟡 Warning', `${singleProduct.name} already added to cart`)
+    //     return;
+    //   }
+
+    //   //logic of adding a prooduct to cart
+    //   singleProduct.inCart = true
+    //   singleProduct.count = 1
+    //   const price = singleProduct.price
+    //   singleProduct.total = price
+
+    //   this.notification('🟢 Success', ` ${singleProduct.name} added to cart`)
+
+    //   return { products: updateProducts, cart: [...prevState.cart, singleProduct] }
+
+    // }, () => { this.calcCartTotals(); this.saveCart() })
+
+
+    //   return {
+    //     products: tempProducts,
+    //     cart: [...this.state.cart, product]
+    //   }
+    // }, () => { this.calcCartTotals(); this.saveCart() })
+
+
+    //////////////////////////
     let tempProducts = [...this.state.products]
     const index = tempProducts.indexOf(this.getProduct(id))
     const product = tempProducts[index]
@@ -136,7 +169,7 @@ class ProductProvider extends Component {
       }}>
 
         {this.props.children}
-      </ProductContext.Provider>
+      </ProductContext.Provider >
     )
   }
 }
