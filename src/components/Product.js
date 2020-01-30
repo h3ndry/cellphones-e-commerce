@@ -20,7 +20,7 @@ export default function ProductCart({ productValues }) {
             <>
               <div className="product-img" onClick={() => { handleDetails(id) }}>
                 <Link to='/details'></Link>
-                <img src={img} alt="product" />
+                <img src={img} alt={name} />
                 <h2>{name}</h2>
               </div>
               <button onClick={() => { addToCart(id) }}>
@@ -63,7 +63,8 @@ const ProductWrapper = styled.div`
       transition: all .6s cubic-bezier(0, 0, 0.2, 1);
       
     }
-    a {
+    a:link,
+    a:active {
       position: absolute;
       display: block;
       height: 100%;
@@ -77,8 +78,8 @@ const ProductWrapper = styled.div`
       &:hover + img {
         transform: scale(1.1)
       }
-    
     }
+
 
     h2 {
       font-size: 1rem;

@@ -11,7 +11,10 @@ class ProductProvider extends Component {
     cart: [],
     notifState: false,
     notifiTitle: '',
-    notifiText: ''
+    notifiText: '',
+    cartSubTotal: 0,
+    cartTax: 0,
+    cartTotal: 0
   }
 
   //Copy all the products to a new array
@@ -37,7 +40,8 @@ class ProductProvider extends Component {
       })
     }
 
-    this.setState(() => ({ products: tempProduct, cart: [...tempCart] }))
+    this.setState(() => ({ products: tempProduct, cart: [...tempCart] }),
+      () => { this.calcCartTotals() })
   }
 
   saveCart = () => { localStorage.setItem("cart", JSON.stringify(this.state.cart)) }
@@ -113,7 +117,7 @@ class ProductProvider extends Component {
 
 
     if (product.inCart) {
-      this.notification('🟡 Warning', `${product.name} already added to cart`)
+      this.notification('😉 Warning', `${product.name} already added to cart`)
       return;
     } else {
       product.inCart = true
@@ -121,7 +125,7 @@ class ProductProvider extends Component {
       const price = product.price
       product.total = price
 
-      this.notification('🟢 Success', ` ${product.name} added to cart`)
+      this.notification('😎 Success', ` ${product.name} added to cart`)
     }
 
 
@@ -145,6 +149,8 @@ class ProductProvider extends Component {
     removedProduct.count = 0;
     removedProduct.total = 0;
 
+    this.notification('😎 Success', ` ${removedProduct.name} removed from cart`)
+
     this.setState(() => ({
       cart: [...tempCart],
       products: [...tempProducts]
@@ -153,7 +159,35 @@ class ProductProvider extends Component {
 
   //Calculating the total in the cart array
   calcCartTotals = () => {
-    console.log('Calc cart Totals')
+    let tempSubTotal = 0;
+    this.state.cart.map(item => (tempSubTotal += item.total))
+
+    const subTotal = parseFloat(tempSubTotal.toFixed(1))
+
+    const tempTax = subTotal * .15;
+    const tax = parseFloat(tempTax.toFixed(1))
+    const total = subTotal + tax
+
+    this.setState(() => ({
+      cartSubTotal: subTotal,
+      cartTax: tax,
+      cartTotal: total
+    }))
+  }
+
+  increment = id => {
+    console.log('product was just incremented')
+  }
+
+  decrement = id => {
+    console.log('product was just decremented')
+  }
+
+  clearCart = () => {
+    localStorage.clear('cart')
+    this.setProduct()
+    this.calcCartTotals()
+    this.notification('🙂 Success', ` Your cart was cleared`)
   }
 
   render() {
@@ -164,7 +198,11 @@ class ProductProvider extends Component {
         addToCart: this.addToCart,
         handleDetails: this.handleDetails,
         removeFromCart: this.removeFromCart,
-        notification: this.notification
+        notification: this.notification,
+        increment: this.increment,
+        decrement: this.decrement,
+        clearCart: this.clearCart
+
 
       }}>
 

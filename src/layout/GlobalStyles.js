@@ -10,7 +10,7 @@ export default createGlobalStyle`
   --blue: #007fff;
   --white: #FFFFFF;
 
-  --display-font: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif,
+  --display-font: sans-serif, 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana,
 }
 
 html {
@@ -28,6 +28,7 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+
 
 body {
   font-family: var(--display-font);

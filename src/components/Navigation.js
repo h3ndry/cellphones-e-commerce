@@ -80,17 +80,16 @@ export default class Navigation extends Component {
               <span>Cell Phones</span>
             </Link>
 
-
             <ProductConsumer>
               {value => {
                 const { cart } = value
 
-                return (
-                  <Link to='/cart' className='cart' >
-                    <span>Cart</span>
-                    {cart.length ? <span className='count' > {cart.length} </span> : null}
-                  </Link>
-                )
+                return <Link to='/cart'
+                  className={pathname === '/cart' ? 'cart hide' : 'cart'} >
+                  <span>Cart</span>
+                  {cart.length ? <span className='count' > {cart.length} </span> : null}
+                </Link>
+
               }}
             </ProductConsumer>
           </div>
@@ -129,17 +128,20 @@ const NavWrapper = styled.nav`
 
   /* conatiner for */
   .nav-inner {
-    padding: 1rem 0;
+    padding-top: 1rem;
     width: 100%;
     height: 100%;
+    height: 4.5rem;
     max-width: 68rem;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
 
     /* NOTE: Align both the cart and the home link
        on the same horizontal */
-    a span, a {
+    a span, a:active,
+    a:link {
       display: flex;
       align-items: center;
 
@@ -151,9 +153,14 @@ const NavWrapper = styled.nav`
       color: var(--dark);
       transition: all .2s linear;
       position: relative;
+      outline: none;
 
-      
     }
+
+     a:active,
+     a:focus {
+       border-bottom: 1px solid rgba( 0, 0, 0, .17);
+     }
 
 
     .home {
@@ -168,11 +175,12 @@ const NavWrapper = styled.nav`
       .icon {
         display: flex; /* center that arrow SVG on its parent */
         margin-right: .875rem;
+        transition: all .5s cubic-bezier(0.65, 0.05, 0.36, 1);
   
 
         &.home-icon {
-          width: 1.5rem;
-          height: 1.5rem;
+          width: 2rem;
+          height: 2rem;
           color: currentColor;
           opacity: .7;
         }
@@ -185,6 +193,7 @@ const NavWrapper = styled.nav`
           align-items:center;
           flex-direction: column;
           justify-content: center;
+          
         }
       }
     }
@@ -192,23 +201,30 @@ const NavWrapper = styled.nav`
 
     .cart {
       margin-right: 1.5rem;
+      transition: all .5s cubic-bezier(0.65, 0.05, 0.36, 1);
+
+      /* styled applied if the url is equal to cart */
+      &.hide { 
+        opacity: 0
+        }
+
+
       .count {
-        display: block;
         position: absolute;
         color: var(--white);
         background-color: var(--red);
         height: 1.5rem;
         width: 1.5rem;
         border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         text-align: center;
+        display: flex;
+        justify-content: center;
         filter: brightness(98%);
         opacity: .8;
         right: -1.5rem;
         top: -9px;
         transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        font-size: .875rem;
         
         &::after {
           content: '';
