@@ -10,14 +10,15 @@ export default createGlobalStyle`
   --blue: #007fff;
   --white: #FFFFFF;
 
-  --display-font: Calibri /*'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, */
+  --display-font: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif,
 }
 
 html {
   font-size: 100%;
-  @media screen and (max-width: 32em) {
+  /* NOTE: I didnt like how it look on small screen */
+  /* @media screen and (max-width: 32em) {
     font-size: 80%;
-  }
+  } */
 }
 
 *,

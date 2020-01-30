@@ -30,6 +30,6 @@ const ProductListWrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   grid-gap: 1rem;
 
-  @media screen and (max-width: 68em) { width: 90%;}
+  @media screen and (max-width: 68em) { width: 96%;}
 
 `

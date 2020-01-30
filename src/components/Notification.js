@@ -23,6 +23,7 @@ const NotificationWrapper = styled.div`
   border: 1px solid rgba(0,0,0, 0.13);
   box-shadow: 2px 2px 4px 0 rgba(0,0,0, .07);
   border-radius: 3px;
+  z-index: 50;
   padding: 2rem 4rem 2rem 2rem;
   transform: translate3d(100%, 0, 0);
   animation: slide-left 5s 1 cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -48,6 +49,16 @@ const NotificationWrapper = styled.div`
   }
 
   @media screen and (max-width: 32em) {
+
+    @keyframes slide-left {
+      0%, 100% {transform: translate3d(100%, 0, 0)}
+      10%, 90% {transform: translate3d(-1rem, 0, 0)}
+    }
+
+    padding: 2rem 2rem 1rem 1rem;
+    P {
+      strong { font-size: 1rem }
+    }
     top: 2rem;
     bottom: auto;
   }

@@ -48,20 +48,40 @@ const HeaderWrapper = styled.header`
       img {height: 100%}
     }
 
-    @media screen and (max-width: 68em) { width: 90%;}
-    @media screen and (max-width: 39.375em) {
-      .banner-img { display: none}
-    }
-  }
+    /* Just resize the inner container to have margin */
+    @media screen and (max-width: 68em) { width: 96%}
 
-    @media screen and (max-width: 32em) {
-      height: 8rem;
-    .header-inner  h1 {
+    @media screen and (max-width: 58.3em) {
+     h1 {
         .main {
           font-size: 2rem;
         }
       }
-      
     }
+
+    @media screen and (max-width: 51em) { 
+      .banner-img {
+        display: flex;
+        align-items: flex-end;
+       img { height: 80%; }
+      }
+    }
+
+  }
+
+  @media screen and (max-width: 32em) {
+    height: 6.5rem;
+    .header-inner {
+      .banner-img { display: none }
+      h1 {
+        .main {
+          font-size: 1.5rem;
+        }
+        .sub {
+          font-size: 1rem;
+        }
+      }
+    }    
+  }
 
 `

@@ -61,15 +61,18 @@ const ProductWrapper = styled.div`
       width: 100%;
       margin-bottom: 1rem;
       transition: all .6s cubic-bezier(0, 0, 0.2, 1);
+      
     }
     a {
       position: absolute;
       display: block;
       height: 100%;
       width: 100%;
+      opacity: 0;
       top: 0;
       bottom: 0;
       left: 0;
+      z-index: 20;
 
       &:hover + img {
         transform: scale(1.1)
@@ -78,6 +81,7 @@ const ProductWrapper = styled.div`
     }
 
     h2 {
+      font-size: 1rem;
       margin-bottom: 1.5rem;
       font-weight: 400;
       color: var(--dark);
@@ -123,7 +127,7 @@ const ProductWrapper = styled.div`
     }
 
     button {
-      font-size: 1.5rem
+      font-size: 1rem
     }
 
   }

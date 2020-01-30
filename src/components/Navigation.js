@@ -63,7 +63,7 @@ export default class Navigation extends Component {
               {pathname === '/' ?
 
                 <span className="icon home-icon">
-                  <svg width="32" height="24.884" viewBox="0 0 32 24.884">
+                  <svg viewBox="0 0 32 24.884">
                     <path d="M15.56,38.506,5.318,46.941v9.1a.889.889,0,0,0,.889.889l6.225-.016a.889.889,0,0,0,.884-.889V50.712a.889.889,0,0,1,.889-.889h3.555a.889.889,0,0,1,.889.889v5.313a.889.889,0,0,0,.889.892l6.223.017a.889.889,0,0,0,.889-.889v-9.11L16.41,38.506a.677.677,0,0,0-.85,0Zm16.178,5.733-4.644-3.828V32.717a.667.667,0,0,0-.667-.667H23.317a.667.667,0,0,0-.667.667V36.75l-4.974-4.092a2.666,2.666,0,0,0-3.389,0L.227,44.239a.667.667,0,0,0-.089.939L1.554,46.9a.667.667,0,0,0,.939.091L15.56,36.228a.677.677,0,0,1,.85,0L29.478,46.991a.667.667,0,0,0,.939-.089l1.417-1.722a.667.667,0,0,0-.094-.94Z" transform="translate(0.015 -32.05)" />
                   </svg>
                 </span>
@@ -137,39 +137,58 @@ const NavWrapper = styled.nav`
     display: flex;
     justify-content: space-between;
 
-    .home {
+    /* NOTE: Align both the cart and the home link
+       on the same horizontal */
+    a span, a {
       display: flex;
       align-items: center;
-      width: 30%;
+
+      /* Rest of the common things between the hone and cart link */
+      text-decoration: none;
+      font-size: 1.125rem;
+      letter-spacing: 1px;
+      line-height: 1.6;
+      color: var(--dark);
+      transition: all .2s linear;
+      position: relative;
+
+      
+    }
+
+
+    .home {
+
+      /* Aligne the icon and the text on home button */
+      display: flex;
+      align-items: baseline;
+
+      /* DEBUG: Note: The hover has some problems, donest wanna work for some reason */
+      &:hover {color: var(--blue)}
+      
       .icon {
-        display: flex;
-        height: 2rem;
-        margin-right: 1rem;
+        display: flex; /* center that arrow SVG on its parent */
+        margin-right: .875rem;
+  
+
+        &.home-icon {
+          width: 1.5rem;
+          height: 1.5rem;
+          color: currentColor;
+          opacity: .7;
+        }
 
         &.arrow {
+          width: 2rem;
+          height: 2rem;
           background-color: var(--blue);
           border-radius: 50%;
-          width: 2rem;
           align-items:center;
-          display: flex;
           flex-direction: column;
           justify-content: center;
         }
       }
     }
-
-    a {
-      text-decoration: none;
-      font-size: 1.5rem;
-      color: var(--dark);
-      transition: all .2s linear;
-      position: relative;
-
-      &:hover {
-        color: var(--blue);
-      }
-
-    }
+    
 
     .cart {
       margin-right: 1.5rem;
@@ -180,8 +199,6 @@ const NavWrapper = styled.nav`
         background-color: var(--red);
         height: 1.5rem;
         width: 1.5rem;
-        font-size: 1.125rem;
-        font-weight: 400;
         border-radius: 50%;
         display: flex;
         flex-direction: column;
@@ -202,15 +219,16 @@ const NavWrapper = styled.nav`
           background-color: var(--red);
           border-radius: 50%;
           z-index: -1;
-          animation: pop-after 1.3s  5s infinite linear forwards
-     
+          animation: pop-after 1.3s  5s infinite linear forwards   
         }
-
       }
-
     }
 
-    @media screen and (max-width: 68em) { width: 90%;}
+    @media screen and (max-width: 68em) { width: 96%;}
+
+    @media screen and (max-width: 43em) {
+      a span, a { font-size: 1rem }
+    }
 
   }
 
