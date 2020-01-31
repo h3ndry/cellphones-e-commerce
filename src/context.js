@@ -165,22 +165,52 @@ class ProductProvider extends Component {
     const subTotal = parseFloat(tempSubTotal.toFixed(1))
 
     const tempTax = subTotal * .15;
-    const tax = parseFloat(tempTax.toFixed(1))
+    const tax = parseFloat(tempTax.toFixed(2))
     const total = subTotal + tax
+    const fixedTotal = parseFloat(total.toFixed(2))
 
     this.setState(() => ({
       cartSubTotal: subTotal,
       cartTax: tax,
-      cartTotal: total
+      cartTotal: fixedTotal
     }))
   }
 
   increment = id => {
-    console.log('product was just incremented')
+    let tempCart = [...this.state.cart]
+    const selectedProductID = tempCart.find(product => product.id === id)
+    const index = tempCart.indexOf(selectedProductID)
+    const selectedProduct = tempCart[index]
+
+    selectedProduct.count = selectedProduct.count + 1
+    selectedProduct.total = selectedProduct.count * selectedProduct.price
+    selectedProduct.total = parseFloat(selectedProduct.total.toFixed(2))
+
+    this.setState(() => ({ cart: [...tempCart] }), () => {
+      this.calcCartTotals()
+      this.saveCart()
+    })
   }
 
   decrement = id => {
-    console.log('product was just decremented')
+    let tempCart = [...this.state.cart]
+    const selectedProductID = tempCart.find(product => product.id === id)
+    const index = tempCart.indexOf(selectedProductID)
+    const selectedProduct = tempCart[index]
+
+    selectedProduct.count = selectedProduct.count - 1
+    selectedProduct.total = selectedProduct.count * selectedProduct.price
+    selectedProduct.total = parseFloat(selectedProduct.total.toFixed(2))
+
+    if (selectedProduct.count === 0) {
+      this.removeFromCart(id)
+    } else {
+      this.setState(() => ({ cart: [...tempCart] }), () => {
+        this.calcCartTotals()
+        this.saveCart()
+      })
+    }
+
   }
 
   clearCart = () => {

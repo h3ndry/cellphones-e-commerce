@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import Color from './Color'
 import { ProductConsumer } from '../context'
@@ -36,6 +37,17 @@ export default function ProductCart({ productValues }) {
       </div>
     </ProductWrapper>
   )
+}
+
+
+ProductCart.PropTypes = {
+  productValues: PropTypes.shape({
+    id: PropTypes.number,
+    img: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.number,
+    inCart: PropTypes.bool
+  }).isRequired
 }
 
 const ProductWrapper = styled.div`
