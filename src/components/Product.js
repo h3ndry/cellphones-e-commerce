@@ -39,16 +39,16 @@ export default function ProductCart({ productValues }) {
   )
 }
 
-
-ProductCart.PropTypes = {
-  productValues: PropTypes.shape({
-    id: PropTypes.number,
-    img: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.number,
-    inCart: PropTypes.bool
-  }).isRequired
-}
+//NOTE: not working now fix it when I have internet
+// ProductCart.PropTypes = {
+//   productValues: PropTypes.shape({
+//     id: PropTypes.number,
+//     img: PropTypes.string,
+//     name: PropTypes.string,
+//     price: PropTypes.number,
+//     inCart: PropTypes.bool
+//   }).isRequired
+// }
 
 const ProductWrapper = styled.div`
 
