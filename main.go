@@ -16,11 +16,19 @@ type Employee struct {
 	City	string
 }
 
+type Customer struct {
+	Id		int
+	Name	string
+	Surname string
+	Email	string
+	Gender string
+}
+
 func dbConn() ( db *sql.DB ) {
 	dbDriver := "mysql"
 	dbUser := "hendry"
 	dbPass := "hendry888"
-	dbNama := "test"
+	dbNama := "e_commerce_db"
 
 	db, err := sql.Open(dbDriver, dbUser+":"+dbPass+"@/"+dbNama)
 	if err != nil {
@@ -33,24 +41,28 @@ var tmpl = template.Must(template.ParseGlob("form/*"))
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	db := dbConn()
-	selDB, err := db.Query("SELECT * FROM employee order BY id DESC")
+	selDB, err := db.Query("SELECT * FROM customers order BY cust_id DESC")
 	if err != nil {
 		panic(err.Error())
 	}
-	emp := Employee{}
-	res := []Employee{}
+	cus := Customer{}
+	res := []Customer{}
+
 	for selDB.Next() {
-		var id int
-		var name, city string
-		err = selDB.Scan(&id, &name, &city)
+		var cust_id int
+		var gendr, name, surname, email string
+		err = selDB.Scan(&cust_id, &name, &surname, &email, &gendr)
 		if err != nil {
 			panic(err.Error())
 		}
-		emp.Id = id
-		emp.Name = name
-		emp.City = city
-		res = append(res, emp)
+		cus.Id = cust_id
+		cus.Name = name
+		cus.Surname = surname
+		cus.Email = email
+		cus.Gender = gendr
+		res = append(res, cus)
 	}
+
 	tmpl.ExecuteTemplate(w, "Index", res)
 	defer db.Close()
 }
@@ -58,7 +70,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 func Show(w http.ResponseWriter, r *http.Request) {
 	db := dbConn()
 	nId := r.URL.Query().Get("id")
-	selDB, err := db.Query("select * from employee where id=?", nId)
+	selDB, err := db.Query("select * from employee where cust_id=?", nId)
 	if err != nil {
 		panic(err.Error())
 	}
