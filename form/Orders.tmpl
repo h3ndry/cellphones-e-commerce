@@ -1,9 +1,9 @@
-{{ define "Index" }}
+{{ define "Orders" }}
   {{ template "Header" }}
     {{ template "Menu"  }}
     <div class"row  d-md-flex"> 
         <div class="d-grid gap-2 d-md-flex justify-content-md-star">
-        <h1 class="fs-1 d-md-flex ">Customers List<h1>
+        <h1 class="fs-1 d-md-flex ">Orders List<h1>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
           <button class="btn btn-secondary btn-lg" type="button"><a href="/new">+ Add New</a></button>
@@ -14,9 +14,9 @@
       <tr>
         <td>ID</td>
         <td>Name</td>
-        <td>Surname</td>
-        <td>Email</td>
-        <td>Gender</td>
+        <td>Description</td>
+        <td>Quantity</td>
+        <td>Price</td>
         <td>View</td>
         <td>Edit</td>
         <td>Delete</td>
@@ -25,14 +25,14 @@
        <tbody>
     {{ range . }}
       <tr>
-        <td>{{ .Id }}</td>
+        <td>{{ .OrderId }}</td>
         <td> {{ .Name }} </td>
-        <td>{{ .Surname }} </td> 
-        <td>{{ .Email }} </td> 
-        <td>{{ .Gender }} </td> 
-        <td><a href="/show?id={{ .Id }}">Details</a></td>
-        <td><a href="/edit?id={{ .Id }}">Edit</a></td>
-        <td><a href="/delete?id={{ .Id }}">Delete</a><td>
+        <td>{{ .Description }} </td> 
+        <td>{{ .Quantity }} </td> 
+        <td>{{ .Price }} </td> 
+        <td><a href="/show?id={{ .OrderId }}">Details</a></td>
+        <td><a href="/edit?id={{ .OrderId }}">Edit</a></td>
+        <td><a href="/delete?id={{ .OrderId }}">Delete</a><td>
       </tr>
     {{ end }}
        </tbody>
